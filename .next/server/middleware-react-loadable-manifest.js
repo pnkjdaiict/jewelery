@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"app\\\\AddBootstrap.js -> bootstrap/dist/js/bootstrap.bundle.js\":{\"id\":\"app\\\\AddBootstrap.js -> bootstrap/dist/js/bootstrap.bundle.js\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_bootstrap_dist_js_bootstrap_bundle_js.js\"]}}"
