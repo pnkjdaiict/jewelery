@@ -12,7 +12,7 @@ export default function WhyUs() {
         <div className="rounded-md w-1/2 border overflow-hidden">
           <Image
             alt=""
-            src={"/new/1.jpg"}
+            src={"/homepage/a2.jpg"}
             objectFit="cover"
             width={600}
             height={600}
@@ -22,7 +22,7 @@ export default function WhyUs() {
         <div className="rounded-md w-1/2 overflow-hidden">
           <Image
             alt=""
-            src={"/new/3.jpg"}
+            src={"/homepage/a1.jpg"}
             objectFit="cover"
             width={600}
             height={600}
@@ -33,10 +33,20 @@ export default function WhyUs() {
 
       {/* Content */}
       <div className="w-full md:w-1/2 flex flex-col md:px-16 2xl:px-24 justify-center items-center gap-5  ">
-        <p className="font-medium text-base  md:text-xl lg:text-4xl font-baskervville">
+        <p className="font-medium text-base  md:text-xl lg:text-5xl font-baskervville">
           WHY OUR JEWELRY?
         </p>
         <div className="text-gray-600 font-poppins text-center flex flex-col gap-5 ">
+          <p>
+            Experience unmatched elegance with our handcrafted jewelry pieces.
+            Each creation reflects a perfect blend of timeless artistry and
+            modern design, made to leave a lasting impression.
+          </p>
+          <p>
+            Experience unmatched elegance with our handcrafted jewelry pieces.
+            Each creation reflects a perfect blend of timeless artistry and
+            modern design, made to leave a lasting impression.
+          </p>
           <p>
             Experience unmatched elegance with our handcrafted jewelry pieces.
             Each creation reflects a perfect blend of timeless artistry and

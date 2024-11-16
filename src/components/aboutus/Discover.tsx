@@ -15,7 +15,7 @@ function Discover() {
 
         {/* Content */}
         <div className="w-full md:w-1/2 flex flex-col md:px-10 gap-5">
-          <p className="font-medium text-base text-xl text-center lg:text-4xl font-baskervville ">
+          <p className="font-medium text-base text-xl text-center lg:text-5xl font-baskervville ">
             Discover timeless beauty in our exclusive jewelry collection.
           </p>
 

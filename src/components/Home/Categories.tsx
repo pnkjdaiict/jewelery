@@ -22,8 +22,8 @@ const categories = [
 
 const JewelryCategories = () => {
   return (
-    <div className="w-[90%] mx-auto px-4 py-8">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div className="md:w-[90%] mx-auto md:px-4 py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
         <div className="row">
           <SectionTitle title={"Shop By Category"}>
             Browse through your favorite categories. We&apos;ve got them all!

@@ -10,7 +10,9 @@ import {
   FaMapMarkerAlt,
   FaHeart,
   FaShoppingBag,
+  FaUser,
 } from "react-icons/fa";
+import { BiCross, BiMenu } from "react-icons/bi";
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -574,14 +576,26 @@ const Header = () => {
   }, []);
 
   const [index, setIndex] = useState<any>();
+  const [show, setShow] = useState<any>(false);
+
   return (
     <div className=" fixed w-full z-10">
+      <div className="w-full backdrop-blur-sm bg-white/70">
+        {" "}
+        <Image
+          alt="logo"
+          src={require("../../../public/homepage/logo2.png")}
+          className="w-36 block md:hidden mx-auto  "
+        />
+      </div>
       <div
         onMouseEnter={() => setIsScrolled(true)}
         onMouseLeave={() => setIsScrolled(false)}
-        className={`w-full px-[15%] ${
-          isScrolled ? "backdrop-blur-sm bg-white/70" : "bg-white"
-        } transition-all ease-linear duration-300 backdrop-blur-sm bg-black/40   shadow-sm py-2 border-b border-gray-300 flex justify-between items-center  text-sm font-light`}
+        className={`w-full px-4 md:px-[15%]  ${
+          isScrolled
+            ? "backdrop-blur-sm bg-white/70"
+            : "md:bg-white bg-white/70"
+        } transition-all ease-linear duration-300 backdrop-blur-sm bg-black/40 md:mt-0   md:shadow-sm py-2 md:border-b border-gray-300 flex justify-between items-center  text-sm font-light`}
       >
         {/* Left Section */}
         <div className={`flex items-center space-x-4   `}>
@@ -594,27 +608,46 @@ const Header = () => {
         <Image
           alt="logo"
           src={require("../../../public/homepage/logo2.png")}
-          className="w-36"
+          className="w-36 md:block hidden"
         />
 
         {/* Right Section */}
         <div className={`flex items-center space-x-4 text-gray-700  `}>
-          <a href="#" className="hover:underline text-gray-800  font-poppins">
-            LOGIN / REGISTER
-          </a>
+          {
+            <a
+              href="#"
+              className={`hover:underline text-gray-800  font-poppins  md:block hidden `}
+            >
+              LOGIN / REGISTER
+            </a>
+          }
+          <FaUser
+            className={`hover:underline text-gray-800  font-poppins  block md:hidden `}
+          />
           <FaHeart className="" />
           <FaShoppingBag className="" />
-          <span className="">₹0</span>
+          <div className=" md:hidden  ">
+            {show ? (
+              <BiCross
+                className="rotate-[45deg] my-1"
+                onClick={() => setShow(false)}
+              />
+            ) : (
+              <BiMenu onClick={() => setShow(true)} />
+            )}
+          </div>
         </div>
       </div>
       <header
         className={`  ${
-          isScrolled ? "backdrop-blur-sm bg-white/70" : "bg-white"
+          isScrolled
+            ? "backdrop-blur-sm bg-white/70 "
+            : "  md:bg-white md:bg-white/70 backdrop-blur-sm bg-white/70 "
         }  transition-all ease-linear duration-300 backdrop-blur-sm bg-black/40 shadow-md fixed w-full z-10 flex items-center px-6 py-2}`}
       >
         {/* Logo Section */}
         {/* Navigation Links */}
-        <nav className="flex-grow flex justify-center space-x-4 py-2">
+        <nav className="md:flex-grow md:flex md:justify-center hidden md:space-x-4 py-2 md:w-full    ">
           {categories.map((category, index) => (
             <Link
               onMouseEnter={() => setIndex(index)}
@@ -629,10 +662,31 @@ const Header = () => {
           ))}
         </nav>
       </header>{" "}
+      {/* mobile menu */}
+      {
+        <nav
+          className={`duration-300 transition-all ease-in ${
+            show ? "translate-x-0" : "translate-x-[100%]"
+          }  pt-1 pb-2 flex flex-col md:hidden    bg-white/70  gap-y-2  `}
+        >
+          {categories.map((category, index) => (
+            <div
+              onMouseEnter={() => setIndex(index)}
+              key={index}
+              // href={`/${category.title.toLowerCase().replace(/\s+/g, "-")}`}
+              className={`text-sm font-semibold px-2 border-b text-gray-700  font-poppins
+              }  hover:text-gray-900 transition duration-300 uppercase relative hover-animation hover:text-pink-700  hover:font-semibold`}
+            >
+              {category.title}
+              <span className="absolute left-0 top-0 h-[3px] w-0 bg-gray-900 transition-all duration-300 transform scale-x-0 origin-center hover:scale-x-100"></span>
+            </div>
+          ))}
+        </nav>
+      }
       {index != null && (
         <div
           onMouseLeave={() => setIndex(null)}
-          className=" mt-4 flex items-center justify-center  h-[60vh] top-0 left-0 w-[100vw] bg-white shadow-lg  "
+          className=" mt-4 flex items-center justify-center  h-[60vh] top-0 left-0 w-[100vw] md:bg-white bg-white/70   shadow-lg  "
         >
           <div className=" w-[80%] mx-auto grid grid-cols-3 gap-6">
             {categories[index].subcategories.map((subcategory, subIndex) => (

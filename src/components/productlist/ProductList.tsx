@@ -89,13 +89,13 @@ export default function ProductList() {
 
   return (
     <div>
-      <div className="col-12 d-flex align-items-center justify-content-center">
+      <div className="md:col-12 flex align-items-center justify-content-center">
         <SectionTitle title={"Top Products"}>
           Explore Our Bestselling and Most Popular Designs
         </SectionTitle>
       </div>
 
-      <div className="grid grid-cols-4 p-4 gap-16 mx-28">
+      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-16 gap-1 md:mx-28">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

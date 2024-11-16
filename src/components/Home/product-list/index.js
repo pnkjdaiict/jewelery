@@ -103,14 +103,14 @@ export default function ProductSection() {
   };
 
   return (
-    <div className=" mx-28 py-8">
+    <div className=" md:mx-28 md:py-8">
       {/* Section Title */}
       <SectionTitle title="Our Products" align="center">
         Explore our exclusive collection.
       </SectionTitle>
 
       {/* Modern Tabs */}
-      <div className="flex justify-start space-x-6 mb-8 border-b border-gray-300">
+      <div className="flex justify-start md:space-x-6 space-x-1 mb-8 border-b border-gray-300">
         {["All", "Rings", "Necklaces", "Earrings", "Bracelets"].map((category) => (
           <button
             key={category}
@@ -118,7 +118,7 @@ export default function ProductSection() {
             className={`relative pb-2 transition-all duration-300 font-medium ${
               activeCategory === category
                 ? "text-pink-600 after:content-[''] after:block after:h-[2px] after:w-full after:bg-pink-600 after:rounded-full"
-                : "text-gray-500 hover:text-pink-600 after:content-[''] after:block after:h-[2px] after:w-0 after:bg-pink-600 after:rounded-full hover:after:w-full hover:after:transition-all hover:after:duration-300 px-3"
+                : "text-gray-500 hover:text-pink-600 after:content-[''] after:block after:h-[2px] after:w-0 after:bg-pink-600 after:rounded-full hover:after:w-full hover:after:transition-all hover:after:duration-300 md:px-3 px-2"
             }`}
           >
             {category}
@@ -127,7 +127,7 @@ export default function ProductSection() {
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-16 gap-1 md:mx-28">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />

@@ -2,9 +2,9 @@
 export default function GiftSection() {
   return (
     <div className="bg-pink-50 py-20 my-10 px-6">
-      <div className="  mx-36 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="  md:mx-36 grid grid-cols-1  lg:grid-cols-2 gap-8">
         {/* Left Section: Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-2">
           {[
             {
               title: "Men Jewellery",
@@ -24,7 +24,7 @@ export default function GiftSection() {
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-white  shadow-lg rounded-lg overflow-hidden p-6 text-center transition-all duration-300 hover:shadow-xl"
+              className="bg-white  w-full shadow-lg rounded-lg overflow-hidden md:p-6 p-2 text-center transition-all duration-300 hover:shadow-xl"
             >
               <img
                 src={item.img}

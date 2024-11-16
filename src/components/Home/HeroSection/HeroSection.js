@@ -22,7 +22,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <div className="w-full h-[90vh] mt-36 relative">
+      <div className="w-full h-[90vh] md:mt-36 relative">
         <div className="video-container w-full h-full">
           <video className="w-full h-full object-cover relative"   loop muted autoPlay>
             <source src={'/homepage/www.mp4'} type="video/mp4" />
@@ -34,7 +34,7 @@ export default function HeroSection() {
         
           <label className='  text-7xl font-medium capitalize font-baskervville  pl-16'>Timeless Jewelry  </label>       
 
-          <label className='  text-7xl font-medium capitalize font-baskervville   text-right pl-48'>Every Occasion </label>
+          <label className='  text-7xl font-medium capitalize font-baskervville   md:text-right pl-16 md:pl-48'>Every Occasion </label>
   </div>
           </div>
         </div>

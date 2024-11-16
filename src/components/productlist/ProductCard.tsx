@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Product Details */}
-        <div className="px-4 pb-2">
+        <div className="md:px-4 px-2 pb-2">
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-gray-800 truncate">
               {product?.name || "wdad"}
@@ -74,7 +74,7 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
         </div>
-        <div className="px-4 pb-2">
+        <div className="md:px-4 px-2 pb-2">
           {/* Product Info */}
           <div className="w-full">
             <button className="w-full gap-2 font-poppins text-sm font-semibold bg-gray-50 py-2 px-4 rounded hover:bg-pink-50 text-base transition-colors">
