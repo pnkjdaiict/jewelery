@@ -8,8 +8,7 @@ import TopBar from "../components/Home/Topbar";
 import Footer from "../components/Home/Footer";
 import ScrollToTop from "../components/Home/ScrolltoTop";
 
-
-// Default metadata for the entire site
+ 
 export const metadata = {
   title: "Jewellery Store",
   description: "Explore the finest jewellery online",
