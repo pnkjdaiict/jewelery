@@ -46,7 +46,7 @@ export const ShoeImages = () => {
           alt="Selected Product"
           height={600}
           width={500}
-          className="h-[400px] bg-pink-50 md:h-[500px] w-full object-contain rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+          className="h-[400px] bg-pink-50 md:h-[500px] w-full object-contain rounded-lg transition-transform duration-300 ease-in-out  "
         />
       </div>
 
