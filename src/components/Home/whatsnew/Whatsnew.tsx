@@ -46,9 +46,9 @@ const WhatsNewSection = () => {
               height={450}
               className="mx-auto rounded-lg"
             />
-            <h3 className="  font-semibold mt-4 text-base text-2xl font-baskervville">
-              {section.title}
-            </h3>
+            <span className=" hover:cursor-pointer hover:underline  font-semibold mt-4    text-base text-2xl font-baskervville">
+              <span className="text-2xl py-2 mt-1">{section.title}</span>
+            </span>
             <p className="text-gray-600 mt-2 px-8">{section.description}</p>
           </div>
         ))}

@@ -26,9 +26,9 @@ const Footer = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-gray-700 text-white px-4 py-2 rounded-full w-full md:w-auto"
+            className="bg-gray-700 text-gray-400 px-4 py-2 rounded-full w-full md:w-auto"
           />
-          <button className="bg-white-500 text-white px-4 py-2 rounded-full hover:bg-white-600">
+          <button className="bg-white-500 text-gray-400 px-4 py-2 rounded-full hover:bg-white-600">
             Subscribe
           </button>
         </div>
@@ -39,12 +39,12 @@ const Footer = () => {
           <h3 className="text-base font-medium mb-4 text-[18px]">ABOUT US</h3>
           <ul>
             <li>
-              <a href="#" className="hover:text-white text-white">
+              <a href="#" className="hover:text-gray-400 text-gray-400">
                 Our Story
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Craftsmanship
               </a>
             </li>
@@ -56,22 +56,22 @@ const Footer = () => {
           <h3 className="text-base font-medium mb-4 text-[18px]">EXPLORE</h3>
           <ul>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 New Arrivals
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Best Sellers
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Bridal Collection
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Custom Jewelry
               </a>
             </li>
@@ -83,17 +83,17 @@ const Footer = () => {
           <h3 className="text-base font-medium mb-4 text-[18px]">POLICIES</h3>
           <ul>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Shipping & Returns
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Terms & Conditions
               </a>
             </li>
@@ -107,17 +107,17 @@ const Footer = () => {
           </h3>
           <ul>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Contact Us
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 FAQs
               </a>
             </li>
             <li>
-              <a href="#" className="text-white hover:underline ">
+              <a href="#" className="text-gray-400 hover:underline ">
                 Jewelry Care Tips
               </a>
             </li>
@@ -128,26 +128,26 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start">
           <h3 className="text-base font-medium mb-4 text-[18px]">FOLLOW US</h3>
           <div className="flex space-x-4 mb-4">
-            <Link href="#" className="text-white hover:text-white-500">
+            <Link href="#" className="text-gray-400 hover:text-gray-400-500">
               <FaFacebookF />
             </Link>
-            <a href="#" className="text-white hover:text-white-500">
+            <a href="#" className="text-gray-400 hover:text-gray-400-500">
               <FaTwitter />
             </a>
-            <a href="#" className="text-white hover:text-base">
+            <a href="#" className="text-gray-400 hover:text-base">
               <FaPinterest />
             </a>
-            <a href="#" className="text-white hover:text-white-500">
+            <a href="#" className="text-gray-400 hover:text-gray-400-500">
               <FaInstagram />
             </a>
-            <a href="#" className="text-white hover:text-white-500">
+            <a href="#" className="text-gray-400 hover:text-gray-400-500">
               <FaYoutube />
             </a>
-            <a href="#" className="text-white hover:text-white-500">
+            <a href="#" className="text-gray-400 hover:text-gray-400-500">
               <FaLinkedinIn />
             </a>
           </div>
-          <button className="bg-white-500 text-white px-4 py-2 rounded-full hover:bg-white-600">
+          <button className="bg-white-500 text-gray-400 px-4 py-2 rounded-full hover:bg-white-600">
             Sign Up
           </button>
         </div>

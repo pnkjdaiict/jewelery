@@ -86,11 +86,18 @@ const ProductCard = ({ product }) => {
 
       {/* Popup */}
       <div
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowPopup(false);
+        }}
         className={`fixed w-full h-full top-0 left-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           showPopup ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           className={`relative bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl transform transition-transform duration-300 ${
             showPopup ? "scale-100" : "scale-90"
           }`}
@@ -100,7 +107,7 @@ const ProductCard = ({ product }) => {
             onClick={() => setShowPopup(false)}
           >
             {/* Close Icon */}
-            <IoMdClose />
+            <IoMdClose className="w-7 h-7" />
           </button>
           <div className="flex flex-col items-center">
             <Image
@@ -111,13 +118,12 @@ const ProductCard = ({ product }) => {
               className="rounded-lg"
             />
             <p className="text-gray-800">{product.description}</p>
-            <div className="flex items-center justify-between">
-              <label className="font-bold text-gray-800 font-sans py-1">
-                {product.price}
-              </label>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-800 truncate">
+            <label className="font-bold text-gray-800 font-sans py-1">
+              {product.price}
+            </label>
+
+            <div className="flex flex-col justify-center ">
+              <span className="text-sm font-semibold text-center text-gray-800 truncate">
                 {product.title || "ring"}
               </span>
               <label className="text-sm text-gray-500">{product.brand}</label>

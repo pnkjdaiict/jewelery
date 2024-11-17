@@ -31,111 +31,134 @@ const ProductDetailsPage = () => {
   // Dummy data for product details
   const title = 'Luxury Diamond Ring';
   const price = '$1,200.00';
+  // const productData = {
+  //   id: 1,
+  //   title: 'Luxury Diamond Ring',
+  //   description: 'A stunning diamond ring with a platinum band, perfect for any special occasion.',
+  //   category: 'Rings',
+  //   price: 1200.00,
+  //   originalPrice: 1500.00,
+  //   discount: 20, // 20% off
+  //   product_image: 'https://via.placeholder.com/500?text=Luxury+Diamond+Ring',
+  //   available: true,
+  //   ratings: 4.8,
+  //   reviewsCount: 135,
+  //   colors: ['red', 'blue', 'green', 'gold', 'silver'],
+  //   sizes: ['6', '7', '8', '9', '10'],
+  //   images: [
+  //     'https://assets.angara.com/ring/sr1912aqd/sr1912aqd_240.jpg?width=768&quality=95',
+  //     'https://via.placeholder.com/500?text=Image+1',
+  //     'https://via.placeholder.com/500?text=Image+2',
+  //     'https://via.placeholder.com/500?text=Image+3',
+  //     'https://via.placeholder.com/500?text=Image+4',
+  //   ],
+  //   totalCaratWeight: {
+  //     title: "Total Carat Weight : 1 Ct",
+  //     data: [
+  //       {
+  //         value: "0.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "1.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "2.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "3.01 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "4.56 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "1.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "2.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "3.01 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "4.56 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       }
+  //     ]
+  //   },
+  //   metalType: {
+  //     title: "Metal Type : Platinum",
+  //     data: [
+  //       {
+  //         value: "0.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "1.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "2.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "3.01 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "4.56 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "1.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "2.93 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "3.01 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       },
+  //       {
+  //         value: "4.56 Ct",
+  //         image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
+  //       }
+  //     ]
+  //   }
+  // };
   const productData = {
-    id: 1,
-    title: 'Luxury Diamond Ring',
-    description: 'A stunning diamond ring with a platinum band, perfect for any special occasion.',
-    category: 'Rings',
-    price: 1200.00,
-    originalPrice: 1500.00,
-    discount: 20, // 20% off
-    product_image: 'https://via.placeholder.com/500?text=Luxury+Diamond+Ring',
-    available: true,
-    ratings: 4.8,
-    reviewsCount: 135,
-    colors: ['red', 'blue', 'green', 'gold', 'silver'],
-    sizes: ['6', '7', '8', '9', '10'],
-    images: [
-      'https://assets.angara.com/ring/sr1912aqd/sr1912aqd_240.jpg?width=768&quality=95',
-      'https://via.placeholder.com/500?text=Image+1',
-      'https://via.placeholder.com/500?text=Image+2',
-      'https://via.placeholder.com/500?text=Image+3',
-      'https://via.placeholder.com/500?text=Image+4',
+    rating: "3" ,
+    title: "AMETHYST PEARL DIAMOND NECKLACE",
+    description: "Amethyst, Pearls & Diamond Necklace",
+    buttonLabel: "REQUEST PRICE",
+    details: [
+      { label: "Weight", value: "89.560 g" },
+      { label: "Metal", value: "18K Gold, Silver" },
+      { label: "Type of Gold", value: "White gold" },
+      { label: "Material", value: "Amethyst, Pearl" },
+      { label: "Occasion", value: "Cocktail, Party" },
+      { label: "Design", value: "Contemporary, Traditional" },
+      { label: "Design Type", value: "Diamond" },
+      { label: "Size", value: "Long Length" },
     ],
-    totalCaratWeight: {
-      title: "Total Carat Weight : 1 Ct",
-      data: [
-        {
-          value: "0.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "1.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "2.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "3.01 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "4.56 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "1.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "2.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "3.01 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "4.56 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        }
-      ]
-    },
-    metalType: {
-      title: "Metal Type : Platinum",
-      data: [
-        {
-          value: "0.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "1.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "2.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "3.01 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "4.56 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "1.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "2.93 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "3.01 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        },
-        {
-          value: "4.56 Ct",
-          image: `${Constants.BASE_IMAGE_URL}/header_gem.webp`
-        }
-      ]
-    }
+    sku: "FNK1129Y18AM1",
+    category: "Necklaces",
+    shareLinks: [
+      { label: "Facebook", url: "https://facebook.com" },
+      { label: "Twitter", url: "https://twitter.com" },
+      { label: "Pinterest", url: "https://pinterest.com" },
+      { label: "LinkedIn", url: "https://linkedin.com" },
+    ],
   };
-
   return (
     <>
       <ProductDetails title={title} price={price} productData={productData} />
