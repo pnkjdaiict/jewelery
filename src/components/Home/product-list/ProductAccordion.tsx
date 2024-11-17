@@ -10,7 +10,7 @@ const ProductAccordion = () => {
 
   return (
     <div className="w-full  mx-auto py-10  px-2 bg-pink-50">
-      {/* Accordion Container */}
+      
       <div className="space-y-4">
         {/* Description Section */}
         <div className="border border-gray-200 rounded-md">
