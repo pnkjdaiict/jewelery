@@ -127,10 +127,11 @@ export default function ProductSection() {
       </div>
 
       {/* Product Grid */}
-      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-16 gap-1 md:mx-28">
+      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-20 gap-1 md:mx-16">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+         <div key={product.id} className="mx-2 mb-2">
+          <ProductCard product={product}  /></div>  
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500">No products found.</p>

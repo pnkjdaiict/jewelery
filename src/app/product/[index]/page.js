@@ -140,6 +140,7 @@ const ProductDetailsPage = () => {
     title: "AMETHYST PEARL DIAMOND NECKLACE",
     description: "Amethyst, Pearls & Diamond Necklace",
     buttonLabel: "REQUEST PRICE",
+    
     details: [
       { label: "Weight", value: "89.560 g" },
       { label: "Metal", value: "18K Gold, Silver" },
@@ -150,8 +151,11 @@ const ProductDetailsPage = () => {
       { label: "Design Type", value: "Diamond" },
       { label: "Size", value: "Long Length" },
     ],
+
     sku: "FNK1129Y18AM1",
+
     category: "Necklaces",
+
     shareLinks: [
       { label: "Facebook", url: "https://facebook.com" },
       { label: "Twitter", url: "https://twitter.com" },

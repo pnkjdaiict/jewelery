@@ -1,5 +1,6 @@
 // pages/index.js
 
+import Link from "next/link";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
 
@@ -99,6 +100,15 @@ export default function ProductList() {
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
+      </div>
+      <div className="flex items-center justify-center  text-pink-700">
+        <Link
+          href={"/product"}
+          className="text-base text-xl capitalize py-3 font-poppins font-normal mt-10  hover:bg-pink-700  bg-pink-200 px-4 rounded transition-all ease-linear duration-200 hover:text-white"
+        >
+          {" "}
+          View all Products
+        </Link>
       </div>
     </div>
   );

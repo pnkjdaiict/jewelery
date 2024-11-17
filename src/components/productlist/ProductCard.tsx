@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BiGitCompare, BiHeart } from "react-icons/bi";
 import { CiViewBoard } from "react-icons/ci";
@@ -9,7 +10,7 @@ const ProductCard = ({ product }) => {
   console.log("title", product);
   const [hovered, setHovered] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-
+  const router = useRouter();
   return (
     <div>
       <div
@@ -18,13 +19,16 @@ const ProductCard = ({ product }) => {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Product Image */}
-        <div className="relative rounded-md">
+        <div
+          className="relative rounded-md"
+          onClick={() => router.push("/product/2")}
+        >
           <Image
             src={product.img}
             alt={product.name || "img"}
             width={400}
             height={400}
-            className="rounded-t-lg p-3 object-cover rounded-md transition-transform duration-500 ease-in-out hover:scale-105"
+            className="rounded-t-lg p-3 object-cover rounded-md hover:cursor-pointer transition-transform duration-500 ease-in-out hover:scale-105"
           />
         </div>
 
