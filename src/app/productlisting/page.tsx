@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ProductCard from "../../components/productlist/ProductCard";
+import Image from "next/image";
 
 const productsData = [
   {
@@ -184,120 +185,141 @@ const ProductListingPage = () => {
   });
 
   return (
-    <div className="flex flex-col md:flex-row mt-36 mx-auto md:items-start md:w-[80%]">
-      {/* Filters Section */}
-      <div className="w-full md:w-1/4 p-6 mt-4 bg-white shadow-md rounded-lg border border-gray-200">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6 border-b pb-2">
-          Filters
-        </h2>
-
-        {/* Category Filter */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
-            Category
-          </label>
-          <select
-            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            {filters.category.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+    <div className="flex flex-col   mt-36 mx-auto ">
+      {/* Banner Section */}
+      <div className="relative h-56 sm:h-[30%] w-full   rounded-lg shadow-sm overflow-hidden mb-8">
+        <div className="absolute inset-0 flex flex-col bg-transparent items-center justify-center text-center px-4 md:px-8">
+          <h1 className="text-pink-600 text-2xl sm:text-4xl font-bold tracking-wide">
+            Welcome to Our Jewelry Collection
+          </h1>
+          <p className="text-pink-600 text-sm sm:text-lg mt-2">
+            Discover the perfect piece for every occasion.
+          </p>
         </div>
-
-        {/* Stock Status Filter */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
-            Stock Status
-          </label>
-          <select
-            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={selectedStockStatus}
-            onChange={(e) => setSelectedStockStatus(e.target.value)}
-          >
-            {filters.stockStatus.map((status) => (
-              <option key={status} value={status}>
-                {status}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Brand Filter */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
-            Brand
-          </label>
-          <select
-            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={selectedBrand}
-            onChange={(e) => setSelectedBrand(e.target.value)}
-          >
-            {filters.brand.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Price Range Filter */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-800 mb-2">
-            Price Range
-          </label>
-          <select
-            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={selectedPriceRange.label}
-            onChange={(e) => {
-              const range = filters.priceRange.find(
-                (r) => r.label === e.target.value
-              );
-              setSelectedPriceRange(range);
-            }}
-          >
-            {filters.priceRange.map((range) => (
-              <option key={range.label} value={range.label}>
-                {range.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Rating Filter */}
-        <div>
-          <label className="block text-sm font-medium text-gray-800 mb-2">
-            Rating (Minimum)
-          </label>
-          <select
-            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={selectedRating}
-            onChange={(e) => setSelectedRating(Number(e.target.value))}
-          >
-            {filters.rating.map((rating) => (
-              <option key={rating} value={rating}>
-                {rating} Stars & Up
-              </option>
-            ))}
-          </select>
-        </div>
+        <Image
+          src="/products/122.jpg" // Replace with your banner image path
+          alt="Jewelry Banner"
+          width={1350}
+          height={300}
+          className="   top-56 z-20  left-0 w-full h-[30vh]  object-cover opacity-30"
+        />
       </div>
 
-      {/* Products Section */}
-      <div className="w-full md:w-3/4 p-6 mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProducts.length ? (
-          filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        ) : (
-          <div className="col-span-full text-center text-gray-600">
-            <p className="text-lg font-medium">No products found</p>
+      <div className="flex flex-col md:flex-row  mx-auto md:items-start md:w-[80%]">
+        {/* Filters Section */}
+        <div className="w-full md:w-1/4 p-6 mt-4 bg-white shadow-md rounded-lg border border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-6 border-b pb-2">
+            Filters
+          </h2>
+
+          {/* Category Filter */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-800 mb-2">
+              Category
+            </label>
+            <select
+              className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+            >
+              {filters.category.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
           </div>
-        )}
+
+          {/* Stock Status Filter */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-800 mb-2">
+              Stock Status
+            </label>
+            <select
+              className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={selectedStockStatus}
+              onChange={(e) => setSelectedStockStatus(e.target.value)}
+            >
+              {filters.stockStatus.map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Brand Filter */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-800 mb-2">
+              Brand
+            </label>
+            <select
+              className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={selectedBrand}
+              onChange={(e) => setSelectedBrand(e.target.value)}
+            >
+              {filters.brand.map((brand) => (
+                <option key={brand} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Price Range Filter */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-800 mb-2">
+              Price Range
+            </label>
+            <select
+              className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={selectedPriceRange.label}
+              onChange={(e) => {
+                const range = filters.priceRange.find(
+                  (r) => r.label === e.target.value
+                );
+                setSelectedPriceRange(range);
+              }}
+            >
+              {filters.priceRange.map((range) => (
+                <option key={range.label} value={range.label}>
+                  {range.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Rating Filter */}
+          <div>
+            <label className="block text-sm font-medium text-gray-800 mb-2">
+              Rating (Minimum)
+            </label>
+            <select
+              className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={selectedRating}
+              onChange={(e) => setSelectedRating(Number(e.target.value))}
+            >
+              {filters.rating.map((rating) => (
+                <option key={rating} value={rating}>
+                  {rating} Stars & Up
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Products Section */}
+        <div className="w-full md:w-3/4 p-6 mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.length ? (
+            filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          ) : (
+            <div className="col-span-full text-center text-gray-600">
+              <p className="text-lg font-medium">No products found</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
