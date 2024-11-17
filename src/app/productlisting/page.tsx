@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import ProductCard from "../../components/productlist/ProductCard";
 
 const productsData = [
@@ -128,11 +129,37 @@ const productsData = [
 const filters = {
   category: ["All", "Rings", "Earrings", "Bracelets", "Necklaces"],
   stockStatus: ["All", "In Stock", "Limited Stock", "Out of Stock"],
+  brand: [
+    "All",
+    "Jewelry Co.",
+    "Glamour",
+    "Luxury",
+    "Royal Gems",
+    "Fine Jewelers",
+    "Elegance",
+    "Silver Touch",
+    "Greenstone",
+    "Precious Gems",
+    "Dazzle",
+  ],
+  priceRange: [
+    { label: "All", min: 0, max: Infinity },
+    { label: "Under $200", min: 0, max: 200 },
+    { label: "$200 - $500", min: 200, max: 500 },
+    { label: "$500 - $800", min: 500, max: 800 },
+    { label: "Above $800", min: 800, max: Infinity },
+  ],
+  rating: [1, 2, 3, 4, 5], // Minimum rating filter
 };
 
-const Page = () => {
+const ProductListingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStockStatus, setSelectedStockStatus] = useState("All");
+  const [selectedBrand, setSelectedBrand] = useState("All");
+  const [selectedPriceRange, setSelectedPriceRange] = useState(
+    filters.priceRange[0]
+  );
+  const [selectedRating, setSelectedRating] = useState(1);
 
   const filteredProducts = productsData.filter((product) => {
     const matchesCategory =
@@ -140,20 +167,37 @@ const Page = () => {
     const matchesStockStatus =
       selectedStockStatus === "All" ||
       product.stockStatus === selectedStockStatus;
-    return matchesCategory && matchesStockStatus;
+    const matchesBrand =
+      selectedBrand === "All" || product.brand === selectedBrand;
+    const matchesPrice =
+      parseInt(product.price.replace("$", ""), 10) >= selectedPriceRange.min &&
+      parseInt(product.price.replace("$", ""), 10) <= selectedPriceRange.max;
+    const matchesRating = product.rating >= selectedRating;
+
+    return (
+      matchesCategory &&
+      matchesStockStatus &&
+      matchesBrand &&
+      matchesPrice &&
+      matchesRating
+    );
   });
 
   return (
-    <div className="flex flex-col md:flex-row mt-32 pt-6">
+    <div className="flex flex-col md:flex-row mt-36 mx-auto md:items-start md:w-[80%]">
       {/* Filters Section */}
-      <div className="w-full md:w-1/4 p-4 mt-6 bg-gray-50 border-r border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">Filters</h2>
+      <div className="w-full md:w-1/4 p-6 mt-4 bg-white shadow-md rounded-lg border border-gray-200">
+        <h2 className="text-xl font-semibold text-gray-900 mb-6 border-b pb-2">
+          Filters
+        </h2>
 
         {/* Category Filter */}
         <div className="mb-6">
-          <label className="text-sm font-medium text-gray-700">Category</label>
+          <label className="block text-sm font-medium text-gray-800 mb-2">
+            Category
+          </label>
           <select
-            className="mt-2 w-full border border-gray-300 rounded-md p-2 text-sm"
+            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -166,12 +210,12 @@ const Page = () => {
         </div>
 
         {/* Stock Status Filter */}
-        <div>
-          <label className="text-sm font-medium text-gray-700">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-800 mb-2">
             Stock Status
           </label>
           <select
-            className="mt-2 w-full border border-gray-300 rounded-md p-2 text-sm"
+            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             value={selectedStockStatus}
             onChange={(e) => setSelectedStockStatus(e.target.value)}
           >
@@ -182,16 +226,81 @@ const Page = () => {
             ))}
           </select>
         </div>
+
+        {/* Brand Filter */}
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-800 mb-2">
+            Brand
+          </label>
+          <select
+            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={selectedBrand}
+            onChange={(e) => setSelectedBrand(e.target.value)}
+          >
+            {filters.brand.map((brand) => (
+              <option key={brand} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Price Range Filter */}
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-800 mb-2">
+            Price Range
+          </label>
+          <select
+            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={selectedPriceRange.label}
+            onChange={(e) => {
+              const range = filters.priceRange.find(
+                (r) => r.label === e.target.value
+              );
+              setSelectedPriceRange(range);
+            }}
+          >
+            {filters.priceRange.map((range) => (
+              <option key={range.label} value={range.label}>
+                {range.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Rating Filter */}
+        <div>
+          <label className="block text-sm font-medium text-gray-800 mb-2">
+            Rating (Minimum)
+          </label>
+          <select
+            className="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            value={selectedRating}
+            onChange={(e) => setSelectedRating(Number(e.target.value))}
+          >
+            {filters.rating.map((rating) => (
+              <option key={rating} value={rating}>
+                {rating} Stars & Up
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* Products Section */}
-      <div className="w-full md:w-3/4 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <div className="w-full md:w-3/4 p-6 mt-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProducts.length ? (
+          filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <div className="col-span-full text-center text-gray-600">
+            <p className="text-lg font-medium">No products found</p>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Page;
+export default ProductListingPage;
