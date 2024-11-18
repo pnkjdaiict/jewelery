@@ -49,8 +49,8 @@ export default function CategorySection() {
                     <div className="row">
                         {categoryImages.map((image, index) => (
                             <div className="col-md-2" key={index}>
-                                <div className="CategoryMainDiv">
-                                    <Link href={image.link}>
+                                <div className="CategoryMainDiv hover:cursor-pointer">
+                                    <Link href={image.link} >
                                         <Image 
                                             src={image.src} 
                                             width={200} 

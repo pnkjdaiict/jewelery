@@ -103,7 +103,7 @@ export default function ProductSection() {
   };
 
   return (
-    <div className=" md:mx-28 md:py-8">
+    <div className=" md:mx-20 md:py-8">
       {/* Section Title */}
       <SectionTitle title="Our Products" align="center">
         Explore our exclusive collection.
@@ -127,10 +127,10 @@ export default function ProductSection() {
       </div>
 
       {/* Product Grid */}
-      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-20 gap-1 md:mx-16">
+      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-2 md:gap-20 gap-1 md:mx-6">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-         <div key={product.id} className="mx-2 mb-2">
+         <div key={product.id} className="mx-4   mb-14">
           <ProductCard product={product}  /></div>  
           ))
         ) : (

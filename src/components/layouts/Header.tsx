@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch, IoMdReturnRight } from "react-icons/io";
 import { CiHeart, CiUser, CiShoppingCart } from "react-icons/ci";
 import {
   FaSearch,
@@ -11,8 +11,16 @@ import {
   FaHeart,
   FaShoppingBag,
   FaUser,
+  FaArrowRight,
+  FaChevronDown,
 } from "react-icons/fa";
-import { BiCross, BiMenu } from "react-icons/bi";
+import {
+  BiCross,
+  BiMenu,
+  BiRightArrow,
+  BiRightArrowCircle,
+} from "react-icons/bi";
+import { FaRightLeft } from "react-icons/fa6";
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -546,16 +554,12 @@ const Header = () => {
           ],
         },
       ];
-
-      console.log("subcategoriessubcategories", data);
-
       setCategories(data);
     };
 
     fetchCategories();
   }, []);
 
-  const [searchTerm, setSearchTerm] = useState("");
   const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
 
   // Track scroll position
@@ -577,15 +581,17 @@ const Header = () => {
 
   const [index, setIndex] = useState<any>();
   const [show, setShow] = useState<any>(false);
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(null);
+  const [activeSubcategoryIndex, setActiveSubcategoryIndex] = useState(null);
 
   return (
     <div className=" fixed w-full z-10">
-      <div className="w-full backdrop-blur-sm bg-white/70">
+      <div className="w-full md:backdrop-blur-sm bg-white md:bg-white/70">
         {" "}
         <Image
           alt="logo"
           src={require("../../../public/homepage/logo2.png")}
-          className="w-36 block md:hidden mx-auto  "
+          className="w-24 block md:hidden mx-auto  "
         />
       </div>
       <div
@@ -593,8 +599,8 @@ const Header = () => {
         onMouseLeave={() => setIsScrolled(false)}
         className={`w-full px-4 md:px-[15%]  ${
           isScrolled
-            ? "backdrop-blur-sm bg-white/70"
-            : "md:bg-white bg-white/70"
+            ? "backdrop-blur-sm md:bg-white/70 bg-white"
+            : "md:bg-white bg-white md:bg-white/70 "
         } transition-all ease-linear duration-300 backdrop-blur-sm bg-black/40 md:mt-0   md:shadow-sm py-2 md:border-b border-gray-300 flex justify-between items-center  text-sm font-light`}
       >
         {/* Left Section */}
@@ -663,22 +669,118 @@ const Header = () => {
         </nav>
       </header>{" "}
       {/* mobile menu */}
+      <nav
+        className={`duration-200 transition-all ease-in ${
+          show ? "translate-x-0" : "translate-x-[100%]"
+        } pt-1 pb-2 flex flex-col md:hidden bg-white gap-y-2`}
+      >
+        {categories.map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            {/* Category */}
+            <div
+              onClick={() =>
+                setActiveCategoryIndex(
+                  activeCategoryIndex === categoryIndex ? null : categoryIndex
+                )
+              }
+              className={` font-semibold   border-b text-gray-500 font-poppins
+                transition flex items-center justify-between text-xs py-3 px-2 duration-300 uppercase hover:text-pink-700 hover:font-semibold`}
+            >
+              {category.title}{" "}
+              <FaChevronDown className="text-xs text-gray-400" />
+            </div>
+
+            {/* Subcategories */}
+            {activeCategoryIndex === categoryIndex && (
+              <div className="  flex flex-col bg-white shadow-lg max-h-[50vh] overflow-y-auto">
+                {category.subcategories.map((subcategory, subIndex) => (
+                  <div key={subIndex}>
+                    <div
+                      onClick={() =>
+                        setActiveSubcategoryIndex(
+                          activeSubcategoryIndex === subIndex ? null : subIndex
+                        )
+                      }
+                      className="  text-gray-500  flex justify-between w-full  px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    >
+                      {subcategory.name}{" "}
+                      <FaChevronDown className="text-xs text-gray-400" />
+                    </div>
+
+                    {/* Items */}
+                    {activeSubcategoryIndex === subIndex && (
+                      <div className="ml-6 pl-2 border-l border-gray-300 flex flex-col">
+                        {subcategory.items.map((item, itemIndex) => (
+                          <Link
+                            key={itemIndex}
+                            href={`/${subcategory.name
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`}
+                            className="block text-gray-500 py-2 text-sm hover:text-primary"
+                          >
+                            {item}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
       {
         <nav
           className={`duration-300 transition-all ease-in ${
             show ? "translate-x-0" : "translate-x-[100%]"
-          }  pt-1 pb-2 flex flex-col md:hidden    bg-white/70  gap-y-2  `}
+          }  pt-1 pb-2 flex flex-col md:hidden    bg-white   gap-y-2  `}
         >
           {categories.map((category, index) => (
-            <div
-              onMouseEnter={() => setIndex(index)}
-              key={index}
-              // href={`/${category.title.toLowerCase().replace(/\s+/g, "-")}`}
-              className={`text-sm font-semibold px-2 border-b text-gray-700  font-poppins
-              }  hover:text-gray-900 transition duration-300 uppercase relative hover-animation hover:text-pink-700  hover:font-semibold`}
-            >
-              {category.title}
-              <span className="absolute left-0 top-0 h-[3px] w-0 bg-gray-900 transition-all duration-300 transform scale-x-0 origin-center hover:scale-x-100"></span>
+            <div key={index}>
+              <div
+                onClick={() => setIndex(index)}
+                // href={`/${category.title.toLowerCase().replace(/\s+/g, "-")}`}
+                className={`text-sm font-semibold px-2 border-b text-gray-500  font-poppins
+              }  hover:text-gray-900 transition flex items-center justify-between text-xs py-3 px-2 duration-300 uppercase relative hover-animation hover:text-pink-700  hover:font-semibold`}
+              >
+                {category.title} <BiRightArrow />
+                <span className="absolute left-0 top-0 h-[3px] w-0 bg-gray-900 transition-all duration-300 transform scale-x-0 origin-center hover:scale-x-100"></span>
+              </div>
+              {index == index && (
+                <div
+                  onMouseLeave={() => setIndex(null)}
+                  className=" mt-4 flex  flex-col items-center justify-center  h-[60vh] top-0 left-0 w-[100vw] md:bg-white bg-white/70   shadow-lg  "
+                >
+                  {/* <div className=" w-[80%] mx-auto grid grid-cols-1  ">
+                    {categories[index].subcategories.map(
+                      (subcategory, subIndex) => (
+                        <div
+                          key={subIndex}
+                          // href={`/${subcategory.name.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="block text-gray-800 font-semibold hover:text-base font-poppins"
+                        >
+                          <span className="font-baskervville text-lg text-base">
+                            {" "}
+                            {subcategory.name}
+                          </span>
+                          {subcategory?.items.map((item, subIndex2) => (
+                            <Link
+                              key={subIndex2}
+                              href={`/${subcategory.name
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`}
+                              className="block text-gray-500 py-2  text-sm hover:text-primary font-poppins"
+                            >
+                              {item}
+                            </Link>
+                          ))}
+                        </div>
+                      )
+                    )}
+                  </div> */}
+                </div>
+              )}
             </div>
           ))}
         </nav>
@@ -686,9 +788,9 @@ const Header = () => {
       {index != null && (
         <div
           onMouseLeave={() => setIndex(null)}
-          className=" mt-4 flex items-center justify-center  h-[60vh] top-0 left-0 w-[100vw] md:bg-white bg-white/70   shadow-lg  "
+          className=" mt-4 hidden md:flex  md:items-center md:justify-center  h-[60vh] top-0 left-0 w-[100vw] md:bg-white bg-white/70   shadow-lg  "
         >
-          <div className=" w-[80%] mx-auto grid grid-cols-3 gap-6">
+          <div className="   grid grid-cols-3  gap-x-80  ">
             {categories[index].subcategories.map((subcategory, subIndex) => (
               <div
                 key={subIndex}

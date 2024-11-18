@@ -31,7 +31,7 @@ export default function HomePopularStyle() {
     <div className="container-fluid popular-styles-section">
         <div className="row">
           <div className="col-12 d-flex align-items-center justify-content-center">
-            <SectionTitle title={"Discover Our Newest and Most Coveted Designs"}>
+            <SectionTitle title={"Shop by your favorite Collection"}>
             Sparkle and Shine: Discover Jewelry for Little Stars
             </SectionTitle>
           </div>

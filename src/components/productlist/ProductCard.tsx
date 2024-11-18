@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BiGitCompare, BiHeart } from "react-icons/bi";
 import { CiViewBoard } from "react-icons/ci";
+import { FaEye } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 const ProductCard = ({ product }) => {
@@ -50,7 +51,7 @@ const ProductCard = ({ product }) => {
             onClick={() => setShowPopup(true)}
             className="p-2 bg-gray-100 rounded-full hover:bg-pink-200"
           >
-            <CiViewBoard />
+            <FaEye />
           </button>
         </div>
 
@@ -58,7 +59,7 @@ const ProductCard = ({ product }) => {
         <div className="md:px-4 px-2 pb-2">
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-gray-800 truncate">
-              {product?.name || "wdad"}
+              {product?.title || "wdad"}
             </span>
             <span className="text-sm font-semibold text-gray-500 truncate">
               {product.description || "ring"}
@@ -102,39 +103,104 @@ const ProductCard = ({ product }) => {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className={`relative bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-4xl transform transition-transform duration-300 ${
+          className={`relative bg-white rounded-lg shadow-lg w-11/12 max-w-4xl transform transition-transform duration-300 ${
             showPopup ? "scale-100" : "scale-90"
           }`}
         >
+          {/* Close Button */}
           <button
-            className="absolute top-2 right-2 p-2 text-gray-600 hover:text-gray-800"
+            className="absolute top-3 right-3 p-2 text-white hover:text-gray-800"
             onClick={() => setShowPopup(false)}
           >
-            {/* Close Icon */}
             <IoMdClose className="w-7 h-7" />
           </button>
-          <div className="flex flex-col items-center">
-            <Image
-              src={product.img}
-              alt={product.description}
-              width={400}
-              height={400}
-              className="rounded-lg"
-            />
-            <p className="text-gray-800">{product.description}</p>
-            <label className="font-bold text-gray-800 font-sans py-1">
-              {product.price}
-            </label>
 
-            <div className="flex flex-col justify-center ">
-              <span className="text-sm font-semibold text-center text-gray-800 truncate">
-                {product.title || "ring"}
-              </span>
-              <label className="text-sm text-gray-500">{product.brand}</label>
+          {/* Popup Content */}
+          <div className="flex flex-col">
+            {/* Heading Section */}
+            <div className="bg-pink-700 px-6 pt-4 rounded-t-lg">
+              <h2 className="text-xl font-bold text-white">
+                {product.name || "Product Title"}
+              </h2>
+              <p className="text-sm text-white">{product.brand}</p>
             </div>
-            {product.stockStatus && (
-              <p className="text-xs text-red-600 mb-2">{product.stockStatus}</p>
-            )}
+
+            {/* Body Section */}
+            <div className="p-6 flex flex-col md:flex-row gap-6">
+              {/* Image Section */}
+              <div className="flex-shrink-0">
+                <Image
+                  src={product.img}
+                  alt={product.description}
+                  width={400}
+                  height={400}
+                  className="rounded-lg"
+                />
+              </div>
+
+              {/* Details Section */}
+              <div className="flex-grow flex flex-col justify-between">
+                {/* Product Description */}
+                <p className="text-gray-700 font-baskervville text-2xl mb-4">
+                  {product.description}
+                </p>
+
+                {/* Price and Stock */}
+                <div className="mb-4">
+                  <label className="text-xl font-bold text-gray-800">
+                    {product.price}
+                  </label>
+                  {product.stockStatus && (
+                    <p className="text-sm text-red-600 mt-2">
+                      {product.stockStatus}
+                    </p>
+                  )}
+                </div>
+
+                {/* Additional Info */}
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="font-semibold text-gray-600">Category</p>
+                    <p className="text-gray-700">
+                      {product.category || "Jewelry"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-600">Material</p>
+                    <p className="text-gray-700">
+                      {product.material || "Gold"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-600">Weight</p>
+                    <p className="text-gray-700">{product.weight || "10g"}</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-600">Dimensions</p>
+                    <p className="text-gray-700">
+                      {product.dimensions || "5x5x2 cm"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-4 mt-6">
+                  <button className="bg-pink-700 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+                    Add to Cart
+                  </button>
+                  <button className="bg-gray-300 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-400">
+                    Add to Wishlist
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Section */}
+            <div className="bg-pink-700 px-6 py-4 rounded-b-lg">
+              <p className="text-sm text-white text-center">
+                * Prices may vary depending on availability.
+              </p>
+            </div>
           </div>
         </div>
       </div>

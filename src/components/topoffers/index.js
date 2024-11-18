@@ -2,7 +2,7 @@
 export default function GiftSection() {
   return (
     <div className="bg-pink-50 py-20 my-10 px-6">
-      <div className="  md:mx-36 grid grid-cols-1  lg:grid-cols-2 gap-8">
+      <div className="  md:mx-24 grid grid-cols-1  lg:grid-cols-2 gap-8">
         {/* Left Section: Product Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-2">
           {[
@@ -24,7 +24,7 @@ export default function GiftSection() {
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-white  w-full shadow-lg rounded-lg overflow-hidden md:p-6 p-2 text-center transition-all duration-300 hover:shadow-xl"
+              className="bg-white  hover:cursor-pointer w-full shadow-lg rounded-lg overflow-hidden md:p-6 p-2 text-center transition-all duration-300 hover:shadow-xl"
             >
               <img
                 src={item.img}
@@ -38,7 +38,7 @@ export default function GiftSection() {
         </div>
 
         {/* Right Section: Gift Guide */}
-        <div className="bg-pink-200 text-center rounded-lg p-8 relative">
+        <div className="bg-pink-200 text-center rounded-lg py-8 relative">
           <h2 className="text-2xl font-bold text-base mb-4">
             Choose Perfect <span className="text-pink-600">Gift</span> for your loved ones
           </h2>
