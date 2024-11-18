@@ -9,7 +9,7 @@ export default function WhyUs() {
     <div className="flex flex-col md:flex-row justify-between items-center py-5 md:gap-5">
       {/* Images */}
       <div className="flex md:order-2 justify-center md:w-[48%] gap-3 md:gap-5">
-        <div className="rounded-md w-1/2 border overflow-hidden">
+        <div className="rounded-md w-1/2 border overflow- md:px-0 px-1">
           <Image
             alt=""
             src={"/homepage/a2.jpg"}
