@@ -96,7 +96,7 @@ export default function ProductList() {
         </SectionTitle>
       </div>
 
-      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-16  gap-y-4 md:mx-28">
+      <div className="grid md:grid-cols-4 grid-cols-2 p-2 md:p-4 md:gap-16  gap-1 md:gap-y-4 md:mx-28">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -672,7 +672,7 @@ const Header = () => {
       <nav
         className={`duration-200 transition-all ease-in ${
           show ? "translate-x-0" : "translate-x-[100%]"
-        } pt-1 pb-2 flex flex-col md:hidden bg-white gap-y-2`}
+        } pt-1 pb-2 flex flex-col overflow-y-auto md:hidden bg-white gap-y-2`}
       >
         {categories.map((category, categoryIndex) => (
           <div key={categoryIndex}>
@@ -692,7 +692,7 @@ const Header = () => {
 
             {/* Subcategories */}
             {activeCategoryIndex === categoryIndex && (
-              <div className="  flex flex-col bg-white shadow-lg max-h-[50vh] overflow-y-auto">
+              <div className="  flex flex-col bg-white overflow-auto shadow-lg max-h-[50vh] overflow-y-auto">
                 {category.subcategories.map((subcategory, subIndex) => (
                   <div key={subIndex}>
                     <div

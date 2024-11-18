@@ -12,16 +12,10 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/productlisting/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/productlisting/page.js"
-    ],
-    "/product/[index]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/product/[index]/page.css",
-      "static/chunks/app/product/[index]/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
